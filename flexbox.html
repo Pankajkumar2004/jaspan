@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>creatin flex</title>
+    <style>
+        .container{
+            display: flex;
+            background-color: blue;
+        }
+/*        .flex-container {
+            flex-direction: row-reverse;
+            -ms-flex-align: baseline;
+            display: flex;
+            width: fit-content;
+            height: fit-content;
+            background-color: dodgerblue;
+        }*/
+        .flex-item {
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            padding-top: 20px;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body style="background-color: green;" >
+    <div class="container">
+    <div class="flex-container"> item name
+    <div class="flex-item" style="flex-grow: 0">item 1</div>
+    <div class="flex-item" style="flex-grow: 0">item 2</div>
+    <div class="flex-item" style="flex-grow: 0">item 3</div>
+</div>
+
+<br>
+<br>
+<hr>
+
+<div class="container">
+        <div class="flex-container"> item name
+    <div class="flex-item" style="flex-grow: 1">item 1</div>
+    <div class="flex-item" style="flex-grow: 1">item 2</div>
+    <div class="flex-item" style="flex-grow: 1">item 3</div>
+</div>
+</body>
+</html>

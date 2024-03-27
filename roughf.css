@@ -1,0 +1,36 @@
+/* styles.css */
+
+/* Common styles for multiple pages */
+body {
+  font-family: Arial;
+  background-color: black;
+  color: white;
+
+}
+
+h1 {
+  color: red;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+/* Classes for specific styling */
+.highlight {
+  font-weight: bold;
+  color: pink;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.big {
+  font-size: 24px;
+}

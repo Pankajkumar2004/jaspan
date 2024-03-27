@@ -1,0 +1,88 @@
+<style type="text/css">
+  body {
+  font-family: 'Baloo 2', cursive;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+h1.Quest {
+  font-family: 'Fjalla One', sans-serif;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+h1.h1 {
+  font-family: 'Cookie', cursive;
+  color: #009688;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="button"] {
+  padding: 10px 20px;
+  background-color: #009688;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+input[type="button"]:hover {
+  background-color: #00796b;
+}
+
+#Result {
+  font-family: 'Do Hyeon', sans-serif;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.Alert {
+  background-color: #f44336;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.alertContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#alarmTime {
+  margin-bottom: 10px;
+}
+
+#alarmButton {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #f44336;
+  border: none;
+  cursor: pointer;
+}
+
+#alarmOptions button {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #fff;
+  color: #f44336;
+  border: none;
+  cursor: pointer;
+}
+
+</style>

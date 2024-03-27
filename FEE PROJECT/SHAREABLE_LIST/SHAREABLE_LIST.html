@@ -1,0 +1,432 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+
+
+
+    <style type="text/css">
+        
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-image: linear-gradient(to right, #605e7e, #6b73c1, #37b3cc);
+    margin: 50px 2%;
+}
+
+/* container title */
+.container-title {
+    font-size: 25px;
+    text-align: center;
+    margin: 0 0 30px 0;
+    color: white;
+    text-shadow: 3px 1px black;
+}
+
+/* container */
+.inputcol {
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: 60% 10%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.textarea {
+    min-height: 50px;
+    height: 50px;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 10px;
+    border-color: #333;
+    font-size: 20px;
+    padding: 10px 10px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.textarea::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #333;
+}
+
+.textarea::-webkit-scrollbar {
+    width: 10px;
+    cursor: pointer;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #8f8acc;
+    cursor: pointer;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+.buttoninput {
+    border-radius: 10px;
+    border-color: #333;
+    background-color: white;
+    font-size: 20px;
+}
+
+.buttoninput:hover {
+    background-color: #8f8acc;
+    color: white;
+}
+
+/* js */
+.todolist {
+    margin-top: 20px;
+}
+
+.itemall {
+    display: grid;
+    grid-template-columns: 60% 5% 5%;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.item, .check-button, .trash-button {
+    border: none;
+    background-color: white;
+    min-height: 50px;
+    padding: 10px 10px;
+}
+
+.item {
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 10px 0 0 10px;
+    display: grid;
+    align-content: center;
+    font-size: 20px;
+}
+
+.check-button, .trash-button {
+    font-size: 15px;
+}
+
+.trash-button {
+    border-radius: 0 10px 10px 0;
+}
+
+.check-button:hover {
+    background-color: #37b3cc;
+    color: white;
+}
+
+.trash-button:hover {
+    background-color: #6b73c1;
+    color: white;
+}
+
+.checklist {
+    text-decoration: line-through;
+}
+
+.fa-check, .fa-trash {
+    pointer-events: none;
+}
+
+button, .check-button, .trash-button {
+    cursor: pointer;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-title">
+        <h1>To Do List</h1>
+    </div>
+    <div class="container">
+        <div class="inputcol">
+            <textarea name="text" class="textarea" id="taskInput"></textarea>
+            <button type="button" class="buttoninput"><i class="fa-solid fa-check"></i></button>
+        </div>
+    </div>
+    <div class="todolist">
+        
+    </div>
+
+<script type="text/javascript">
+    
+
+    const inputtdl = document.querySelector('.textarea')
+const buttontdl = document.querySelector('.buttoninput')
+const listtdl = document.querySelector('.todolist')
+
+function clickButton(e) {
+    e.preventDefault()
+    addTodo()
+}
+
+// adding todoList
+function addTodo() {
+    const itemall = document.createElement('div')
+    itemall.classList.add('itemall')
+
+    const item = document.createElement('p')
+    item.classList.add('item')
+    item.innerText = inputtdl.value
+    itemall.appendChild(item)
+
+    if (inputtdl.value === '') return
+
+    const checkbutton = document.createElement("button")
+    checkbutton.innerHTML = '<i class="fa-solid fa-check"></i>'
+    checkbutton.classList.add("check-button")
+    itemall.appendChild(checkbutton)
+
+    const trashbutton = document.createElement("button")
+    trashbutton.innerHTML = '<i class="fa-solid fa-trash"></i>'
+    trashbutton.classList.add("trash-button")
+    itemall.appendChild(trashbutton)
+
+    listtdl.appendChild(itemall)
+    inputtdl.value = ''
+}
+
+// checking and delete todoList 
+function okdel(e) {
+    const item = e.target
+
+    // check
+    if (item.classList[0] === 'check-button') {
+        const todolist = item.parentElement
+        todolist.classList.toggle('checklist')
+    }
+
+    // delete
+    if (item.classList[0] === 'trash-button') {
+        const todolist = item.parentElement
+        todolist.remove()
+    }
+}
+
+buttontdl.addEventListener('click', clickButton)
+listtdl.addEventListener('click', okdel)
+</script>
+
+
+
+
+  <script>
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
+
+      const taskText = taskInput.value.trim();
+
+      if (taskText) {
+        const taskLink = document.createElement("a");
+        taskLink.href = "#"; // You can set the link destination here
+        taskLink.textContent = taskText;
+        taskLink.addEventListener("click", function () {
+          alert("You clicked on: " + taskText);
+        });
+
+        const listItem = document.createElement("li");
+        listItem.appendChild(taskLink);
+        taskList.appendChild(listItem);
+
+        taskInput.value = ""; // Clear the input field
+      }
+    }
+  </script>
+</body>
+
+
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .app-container {
+        height: 100vh;
+        width: 100%;
+      }
+      .complete {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="app-container d-flex align-items-center justify-content-center flex-column"
+      ng-app="myApp"
+      ng-controller="myController"
+    >
+      {{ task_name }}
+      <h3>Todo App</h3>
+      <div class="d-flex align-items-center mb-3">
+        <div class="form-group mr-3 mb-0">
+          <input
+            ng-model="yourTask"
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Enter a task here"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary mr-3"
+          ng-click="saveTask()"
+        >
+          Save
+        </button>
+        <button type="button" class="btn btn-warning" ng-click="getTask()">
+          Get Tasks
+        </button>
+      </div>
+      {{ yourName }}
+      <div class="table-wrapper">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Todo item</th>
+              <th>status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              ng-repeat="task in tasks"
+              class="{{ task.status ? 'table-success' : 'table-light' }}"
+            >
+              <td>{{ $index + 1 }}</td>
+              <td class="{{ task.status ? 'complete' : 'task' }}">
+                {{ task.task_name }}
+              </td>
+              <td>{{ task.status ? "Completed" : "In progress" }}</td>
+              <td>
+                <button class="btn btn-danger" ng-click="delete($index)">
+                  Delete
+                </button>
+                <button class="btn btn-success" ng-click="finished($index)">
+                  Finished
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myController", function($scope) {
+        $scope.tasks = [];
+        // $scope.saved = localStorage.getItem("tasks");
+        // $scope.tasks =
+        //   localStorage.getItem("tasks") !== null
+        //     ? JSON.parse($scope.saved)
+        //     : [
+        //         { task_name: "Learn AngularJS", status: false },
+        //         { task_name: "Build an Angular app", status: false }
+        //       ];
+        // localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        $scope.saveTask = function() {
+          $scope.tasks.push({ task_name: $scope.yourTask, status: false });
+          //   localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.getTask = function() {
+          var oldTasks = $scope.tasks;
+          $scope.tasks = [];
+          angular.forEach(oldTasks, function(task) {
+            if (!task.done) $scope.tasks.push(task);
+          });
+          localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.delete = function(i) {
+          $scope.tasks.splice(i, 1);
+        };
+        $scope.finished = function(i) {
+          $scope.tasks[i].status = true;
+        };
+      });
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+        var app = angular.module("myApp", []);
+      app.controller("myController", function($scope) {
+        $scope.tasks = [];
+        // $scope.saved = localStorage.getItem("tasks");
+        // $scope.tasks =
+        //   localStorage.getItem("tasks") !== null
+        //     ? JSON.parse($scope.saved)
+        //     : [
+        //         { task_name: "Learn AngularJS", status: false },
+        //         { task_name: "Build an Angular app", status: false }
+        //       ];
+        // localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        $scope.saveTask = function() {
+          $scope.tasks.push({ task_name: $scope.yourTask, status: false });
+          //   localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.getTask = function() {
+          var oldTasks = $scope.tasks;
+          $scope.tasks = [];
+          angular.forEach(oldTasks, function(task) {
+            if (!task.done) $scope.tasks.push(task);
+          });
+          localStorage.setItem("tasks", JSON.stringify($scope.tasks));
+        };
+        $scope.delete = function(i) {
+          $scope.tasks.splice(i, 1);
+        };
+        $scope.finished = function(i) {
+          $scope.tasks[i].status = true;
+        };
+      });
+    </script>
+  </body>
+</html>

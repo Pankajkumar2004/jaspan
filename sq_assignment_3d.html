@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @keyframes turn {
+        from {
+          transform: rotate3d(0, 0, 0, 0);
+        }
+        to {
+          transform: rotate3d(1, 1, 0, 360deg);
+        }
+      }
+      .cube {
+        width: 20px;
+        height: 20px;
+        transform-style: preserve-3d;
+        animation: turn 5s linear infinite;
+        margin: 50px;
+      }
+      .face {
+        width: 100px;
+        height: 100px;
+        background: #ff6d00;
+        border: 2px solid white;
+        position: absolute;
+        opacity: 0.75;
+        transform: translateZ(50px);
+      }
+      .front {
+        transform: translateZ(50px);
+        background: red;
+      }
+      .back {
+        transform: translateZ(-50px) rotateY(180deg);
+        background: blueviolet;
+      }
+      .left {
+        transform: translateX(-50px) rotateY(-90deg);
+        background: burlywood;
+      }
+      .right {
+        transform: translateX(50px) rotateY(90deg);
+        background:   black;
+      }
+      .top {
+        transform: translateY(-50px) rotateX(90deg);
+      }
+      .bottom {
+        transform: translateY(50px) rotateX(-90deg);
+      }
+    </style>
+
+    <title>Salow Studios</title>
+  </head>
+
+  <body>
+  
+    <h1 align=" center">3D Cube Animation</h1>
+
+    <center>  
+  
+    <div class="cube">
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+      <div class="face front"></div>
+      <div class="face back"></div>
+    </div>
+  </center>
+  </body>
+</html>

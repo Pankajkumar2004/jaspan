@@ -1,0 +1,49 @@
+/*body{
+	background-color: black
+}*/
+/*body{
+	
+	background-image:url("C:\Users\parjo\Desktop\sample pic.jpeg");
+}
+
+#marquee{
+	font-family: Algerian;
+	font-size: 50px;
+
+
+}
+p{
+	background-color: rgb(60,24,95);
+}
+
+ol{
+	background-color: rgb(67,7,51);
+	opacity: 0.5
+}
+#tea{
+	color: aqua
+}
+#coffee{
+	color: aqua
+}
+#cold{
+	color: yellow
+}
+#water{
+	color: red
+}
+
+#para{
+
+	padding:50px
+}
+*/
+
+
+body{
+	background-image: url("C:\Users\parjo\Desktop\sample pic.jpeg");
+	background-repeat: no-repeat;
+	background-position: right-top: 
+	margin-right:200px;
+	background-attachment: fixed;
+}

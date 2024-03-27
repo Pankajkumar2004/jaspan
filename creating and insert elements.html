@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>d</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/0.10.0/skulpt.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/0.10.0/skulpt-stdlib.js"></script>
+<script type="text/javascript">
+    function runPythonCode() {
+        var prog = document.getElementById("python_code").value;
+        var output = document.getElementById("output");
+        Sk.configure({output: function (text) { output.innerHTML += text + "\n"; }});
+        Sk.importMainWithBody("<stdin>", false, prog);
+    }
+</script>
+
+<textarea id="python_code" rows="4" cols="50">
+print("Hello, Python in HTML!")
+</textarea>
+<button onclick="runPythonCode()">Run Python</button>
+<pre id="output"></pre>
+
+
+</body>
+</html>
